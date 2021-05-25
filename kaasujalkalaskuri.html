@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8">
+<style>
+.carcss{
+    height: 50px;
+    margin: 10px;
+}
+:root{
+    --input-border:#8b8a8b;
+    --input-focus: 245;
+    --input-focus-s: 100%;
+    --input-focus-l: 42%;
+}
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+.input {
+    font-size: 20px;
+    font-size: max(20px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+    vertical-align: middle;
+}
+.speed {
+    margin-right: 0px;
+}
+.speedandcars {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width:800px;
+}
+.scales {
+    height: 80px;
+}
+div {
+    /*display: flex;*/
+    /*justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    min-height: 30px;
+    padding: 0px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create equal columns that float next to each other */
+.carcolumn {
+  float: left;
+  display:block;
+  width: 150px;
+  padding: 10px;
+}
+.columnspeed {
+    float: left;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    padding-top:30px;
+}
+.column2 {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+}
+.column2light {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+  padding-top: 30px; 
+  min-height:104px; 
+  background-color: rgb(214, 228, 235);
+}
+.column2dark {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+  min-height:104px;
+  background-color:rgb(36, 58, 104);
+}
+.column3 {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+}
+.column3light {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+  min-height: 100px;
+  background-color: rgb(214, 228, 235);
+}
+.column3dark {
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+  min-height: 100px;
+  background-color:rgb(36, 58, 104); color:rgb(255, 94, 0);
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.logo {
+    width: 800px;
+    height: 140px;
+}
+.footerlinks a {
+    color:lightsteelblue;
+    padding-left: 10px;
+    
+}
+.footerlinks {
+    color:lightsteelblue;
+    padding-left: 10px;
+}
+</style>
+    </header>
+    <body>
+        <head>
+            <img class="logo" src="https://i.ibb.co/6r6KbDS/logo.jpg">
+             
+        </head>
+        <div class="speedandcars">
+            <div class="row">
+                <div class="columnspeed">
+                    <span class="speed">
+                        <input  class="input" id="distanceListener" name="count" type="text" size="5" maxlength="3"  value="" />
+                         km
+                        </span>
+                </div>
+                <div class="carcolumn">
+                    <input type="image" class="carcss" src="https://i.ibb.co/L05Rrwp/mini.gif" alt="Car A" value="Car A" onclick="updateCarChoice(1)">
+                </div>
+                <div class="carcolumn">
+                    <input type="image" class="carcss" src="https://i.ibb.co/W2JPF1p/suv.gif" alt="Car B" value="Car B" onclick="updateCarChoice(2)">
+                </div>
+                <div class="carcolumn">
+                    <input type="image" class="carcss" src="https://i.ibb.co/bXrhQWS/hatchback.gif" alt="Car C" value="Car C" onclick="updateCarChoice(3)">
+                </div>
+            </div>
+            
+        </div>
+        <div class="row" style="min-width:800px; padding-left: 50px;">
+            <div class="column2light">
+                <span>
+                <div>
+                <input  class="input" id="speed1Listener" name="count" type="text" size="5" maxlength="3"  value="" /> km / h</div>
+                </span>
+            </div>
+            <div class="column2light">
+                <div>
+                <input  class="input" id="speed2Listener" name="count" type="text" size="5" maxlength="3"  value="" /> km / h</div>
+            </div>
+            <div class="column2dark">
+                <span>
+                    <img class="scales" src="https://i.ibb.co/f4zmpDv/scales.gif">
+                    </span>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:50px; min-width:800px; padding-left:50px;">
+            <div class="column3light">
+                <div id="hours1" class="textresult"></div>
+                <div id="liters1" class="textresult"></div>
+            </div>
+            <div class="column3light">
+                <div id="hours2" class="textresult"></div>
+                <div id="liters2" class="textresult"></div>
+            </div>
+            <div class="column3dark">
+                    <div id="deltahours" class="textresult"></div>
+                    <div id="deltaliters" class="textresult"></div>
+            </div>
+        </div>
+        
+    </body>
+    <footer>
+        <span class="footerlinks">
+            Vector graphics credits: <br>
+            <a href='https://www.freepik.com/vectors/car'>Car vector created by macrovector - www.freepik.com</a><br>
+            <a href='https://www.freepik.com/vectors/technology'>Technology vector created by rawpixel.com - www.freepik.com</a>
+        </span>
+    </footer>
+    <script>
+        //VARIABLES
+        var speed1 = 1;
+        var speed2 = 1;
+        var distance = 0;
+
+        var carABase = 3;
+        var carBBase = 3.5;
+        var carCBase = 4;
+
+        var carCmp = carABase;
+
+        var hours1 = 0;
+        var hours2 = 0;
+        var deltahours = 0;
+        var liters1 = 0;
+        var liters2 = 0;
+        var deltaliters = 0;
+
+        var time1String = "0 h 0 min";
+        var time2String = "0 h 0 min";
+        var deltatimeString = "0 h 0 min";
+        
+        //PRINT VALUES ONCE IN THE BEGINNING
+        printValues();
+
+        //CALCULATION OF LITERS AND HOURS
+        var car = {
+            liters: function (speed, baseC, distance){
+                var k = Math.pow(1.009, (speed-1));
+                var consumption = k * baseC;
+                var liters = consumption * distance / 100;
+                return liters;
+            },
+            hours: function (distance, speed){
+                var hours = distance / speed;
+            return hours;
+            },
+        }
+        //EVENT LISTENERS FOR...
+        //DISTANCE
+        document.getElementById('distanceListener').onkeyup = function() {
+            distance = this.value;
+            updateAllValues();
+        }
+        //SPEED1
+        document.getElementById('speed1Listener').onkeyup = function() {
+            if (this.value != 0){
+                speed1 = this.value;
+            }
+            updateAllValues();
+        }
+        //SPEED2
+        document.getElementById('speed2Listener').onkeyup = function() {
+            if (this.value != 0){
+                speed2 = this.value;
+            }
+            updateAllValues();
+        }
+        //PRINT CALCULATED VALUES
+        function printValues (){
+            document.getElementById("liters1").innerHTML = liters1.toFixed(2) + " l" || 0;
+            document.getElementById("liters2").innerHTML = liters2.toFixed(2) + " l" || 0;
+            document.getElementById("hours1").innerHTML = time1String || 0;
+            document.getElementById("hours2").innerHTML = time2String || 0;
+            document.getElementById("deltahours").innerHTML = deltatimeString || 0;
+            document.getElementById("deltaliters").innerHTML = deltaliters.toFixed(2) + " l" || 0;
+        }
+        //UPDATE VALUES FROM CHANGING CAR CHOICE
+        function updateCarChoice(chooseLetter){
+            if (chooseLetter == 1){
+                carCmp = carABase;
+            } else if (chooseLetter == 2){
+                carCmp = carBBase;
+            } else if (chooseLetter == 3){
+                carCmp = carCBase;
+            }
+            updateAllValues();
+        }
+        //UPDATE HOURS AND LITERS
+        function updateHoursAndLiters(){
+            hours1 = car.hours(distance, speed1);
+            liters1 = car.liters(speed1, carCmp, distance)
+            hours2 = car.hours(distance, speed2);
+            liters2 = car.liters(speed2, carCmp, distance);
+        }
+        //UPDATE THE DIFFERENCE (DELTA)
+        function updateDelta(){
+            deltahours = Math.abs(hours1 - hours2);
+            deltaliters = Math.abs(liters1 - liters2);
+        }
+        //DECIMAL HOURS CONVERSION TO HH:MM
+        function timeConversion(t){
+            var time =
+            [
+                (t > 0) ? Math.floor(t) : Math.ceil(t),
+                t - Math.floor(t)
+            ];
+            var hhmm = time[0] + " h " + Math.round(Number(time[1])*60) + " min";
+            var timeString = "time[0]: " + time[0] + " time[1]: " + time[1];
+            return hhmm;
+        }
+        function convertAllHours(){
+            time1String = timeConversion(hours1);
+            time2String = timeConversion(hours2);
+            deltatimeString = timeConversion(deltahours);
+        }
+        //UPDATE ALL VALUES
+        function updateAllValues(){
+            updateHoursAndLiters();
+            updateDelta();
+            convertAllHours();
+            printValues();
+        }
+    </script>
+</html>
